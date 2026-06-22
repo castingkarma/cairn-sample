@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cairn — Helping businesses use AI well</title>
+<meta name="description" content="Cairn helps small and mid-sized businesses put AI to work across their operations — from spotting the opportunity to shipping it and making it stick.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F1; --paper:#FFFFFF; --ink:#23302B; --ink2:#5C6660; --line:#E7E0D4;
+  --forest:#2E3A30; --clay:#B9714B; --gold:#C2A252; --sage:#7C8B79; --mist:#F1ECE1;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;background:var(--forest);color:#fff;padding:13px 22px;border-radius:10px;font-weight:600;font-size:15px;transition:.15s;border:1px solid var(--forest)}
+.btn:hover{background:#243029;transform:translateY(-1px)}
+.btn.alt{background:transparent;color:var(--forest)}
+.btn.alt:hover{background:var(--mist)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(250,247,241,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:11px;font-family:Fraunces,serif;font-weight:600;font-size:21px;letter-spacing:.02em}
+.brand svg{display:block}
+.navlinks{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:500;color:var(--ink2)}
+.navlinks a:hover{color:var(--ink)}
+.navlinks .btn{color:#fff;font-size:14px;padding:9px 16px}
+@media(max-width:780px){.navlinks a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:74px 0 56px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(34px,5.4vw,58px)}
+.hero p.lead{font-size:clamp(17px,2.2vw,21px);color:var(--ink2);max-width:620px;margin:22px 0 30px}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.trust{margin-top:26px;font-size:13.5px;color:var(--ink2);display:flex;gap:18px;flex-wrap:wrap}
+.trust b{color:var(--ink)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--mist);border:1px solid var(--line);color:var(--forest);font-size:13px;font-weight:600;padding:6px 13px;border-radius:999px;margin-bottom:22px}
+
+/* sections */
+section{padding:64px 0}
+.sec-head{max-width:680px;margin-bottom:42px}
+.sec-head h2{font-size:clamp(26px,3.4vw,38px);margin-top:10px}
+.sec-head p{color:var(--ink2);font-size:17px;margin:14px 0 0}
+
+/* problem band */
+.band{background:var(--forest);color:#EDE7DA}
+.band h2{color:#fff}
+.band .sec-head p{color:#C9CFC6}
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prob{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:22px}
+.prob h3{font-size:18px;color:#fff;margin-bottom:8px}
+.prob p{color:#C2C9BF;font-size:14.5px;margin:0}
+@media(max-width:780px){.probs{grid-template-columns:1fr}}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.15s}
+.card:hover{box-shadow:0 14px 34px rgba(35,48,43,.08);transform:translateY(-3px)}
+.card .num{width:38px;height:38px;border-radius:10px;background:var(--mist);color:var(--clay);display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-weight:600;font-size:18px;margin-bottom:16px}
+.card h3{font-size:20px;margin-bottom:9px}
+.card p{color:var(--ink2);font-size:14.5px;margin:0 0 14px}
+.card ul{margin:0;padding-left:18px;color:var(--ink2);font-size:13.5px}
+.card li{margin-bottom:5px}
+@media(max-width:780px){.cards{grid-template-columns:1fr}}
+.aside-note{margin-top:26px;background:var(--mist);border:1px dashed var(--gold);border-radius:14px;padding:18px 22px;font-size:14.5px;color:var(--forest)}
+.aside-note b{font-weight:700}
+
+/* approach */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{position:relative;padding-top:18px}
+.step::before{content:"";display:block;width:13px;height:13px;border-radius:50%;background:var(--clay);position:absolute;top:0;left:0}
+.step h3{font-size:16.5px;margin-bottom:6px}
+.step p{color:var(--ink2);font-size:13.5px;margin:0}
+.steps-line{height:2px;background:var(--line);margin:0 6px 22px}
+@media(max-width:780px){.steps{grid-template-columns:1fr 1fr}}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+.tier.feature{border-color:var(--forest);box-shadow:0 12px 30px rgba(35,48,43,.10)}
+.tier .tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--clay)}
+.tier .amt{font-family:Fraunces,serif;font-size:32px;font-weight:600;margin:8px 0 2px}
+.tier .amt small{font-size:14px;color:var(--ink2);font-weight:400;font-family:Inter}
+.tier .desc{color:var(--ink2);font-size:14px;margin:10px 0 16px}
+.tier ul{list-style:none;margin:0 0 20px;padding:0;font-size:14px;color:var(--ink)}
+.tier li{padding:7px 0;border-top:1px solid var(--line);display:flex;gap:9px}
+.tier li::before{content:"✓";color:var(--sage);font-weight:700}
+.tier .btn{margin-top:auto;text-align:center}
+.price-note{text-align:center;color:var(--ink2);font-size:13.5px;margin-top:22px}
+@media(max-width:780px){.price-grid{grid-template-columns:1fr}}
+
+/* who */
+.who-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.who ul{list-style:none;padding:0;margin:18px 0 0}
+.who li{padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;display:flex;gap:11px}
+.who li::before{content:"→";color:var(--clay);font-weight:700}
+.about-card{background:var(--mist);border-radius:18px;padding:30px}
+.about-card h3{font-size:22px;margin-bottom:12px}
+.about-card p{color:var(--ink2);font-size:14.5px;margin:0 0 12px}
+@media(max-width:780px){.who-grid{grid-template-columns:1fr;gap:30px}}
+
+/* cta */
+.cta-band{background:linear-gradient(135deg,#2E3A30,#3a4a3d);color:#fff;border-radius:22px;padding:54px 40px;text-align:center;margin:30px 0}
+.cta-band h2{color:#fff;font-size:clamp(26px,3.6vw,38px)}
+.cta-band p{color:#CBD2C7;max-width:520px;margin:14px auto 26px;font-size:17px}
+.cta-band .btn{background:#fff;color:var(--forest)}
+.cta-band .btn:hover{background:#f0ece2}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink2);font-size:13.5px}
+.foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-brand{font-family:Fraunces,serif;font-size:18px;color:var(--ink)}
+.parent{font-size:12.5px;color:var(--ink2);margin-top:4px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap"><nav>
+  <a class="brand" href="#top">
+    <svg width="24" height="30" viewBox="0 0 24 30" fill="none" aria-hidden="true">
+      <ellipse cx="12" cy="25.5" rx="9" ry="3.4" fill="#B9714B"/>
+      <ellipse cx="12" cy="18.5" rx="7.4" ry="3" fill="#2E3A30"/>
+      <ellipse cx="12" cy="12.2" rx="5.6" ry="2.6" fill="#7C8B79"/>
+      <ellipse cx="12" cy="6.6" rx="3.8" ry="2.2" fill="#C2A252"/>
+    </svg>
+    Cairn
+  </a>
+  <div class="navlinks">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a class="btn" href="#contact">Book a call</a>
+  </div>
+</nav></div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-badge">● Now booking AI Opportunity Assessments</span>
+    <h1>Helping businesses<br>actually use AI&nbsp;— well.</h1>
+    <p class="lead">Most small and mid-sized companies know they should be doing more with AI. They just don't have someone to turn the hype into a plan, ship it, and make it stick. That's what Cairn does.</p>
+    <div class="cta-row">
+      <a class="btn" href="#contact">Book a free 30-min call</a>
+      <a class="btn alt" href="#services">See how it works →</a>
+    </div>
+    <div class="trust">
+      <span>✓ <b>Plain-English</b>, no jargon</span>
+      <span>✓ <b>Fixed-fee</b> packages</span>
+      <span>✓ <b>You own</b> everything we build</span>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--gold)">Why now</span>
+      <h2>The tools moved fast. Most businesses haven't.</h2>
+      <p>The opportunity is real — but so is the noise. The gap isn't the technology; it's having a trusted guide who can find what's worth doing and get it into your day-to-day.</p>
+    </div>
+    <div class="probs">
+      <div class="prob"><h3>"Where do we even start?"</h3><p>Endless tools, demos, and LinkedIn hot-takes — and no clear, prioritized path tied to your actual business.</p></div>
+      <div class="prob"><h3>"We tried it; it fizzled."</h3><p>A pilot that never made it into real workflows, or a tool nobody adopted. Strategy decks don't change how work gets done.</p></div>
+      <div class="prob"><h3>"Who do we trust?"</h3><p>Agencies overpromise; freelancers disappear. You want someone who'll scope it honestly and stay until it works.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What we do</span>
+      <h2>From "we should use AI" to results you can measure.</h2>
+      <p>Three steps that build on each other. Start anywhere — most clients begin with an Assessment.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="num">1</div>
+        <h3>See the opportunity</h3>
+        <p>A focused audit of your operations to find where AI saves real time or money — scored, prioritized, and tied to dollars.</p>
+        <ul>
+          <li>Workflow & tooling review</li>
+          <li>Prioritized opportunity map</li>
+          <li>90-day roadmap + ROI estimate</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <h3>Ship the solution</h3>
+        <p>We build and launch the highest-value workflow — not a slide deck. A working pilot your team actually uses.</p>
+        <ul>
+          <li>One high-ROI workflow, live</li>
+          <li>Tool selection & setup</li>
+          <li>Built to hand off, not lock in</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <h3>Make it stick</h3>
+        <p>Adoption is where most efforts die. We train your team, document it, and keep improving as the tools evolve.</p>
+        <ul>
+          <li>Team training & playbooks</li>
+          <li>Ongoing optimization</li>
+          <li>Fractional "AI partner" option</li>
+        </ul>
+      </div>
+    </div>
+    <div class="aside-note">
+      <b>Need something custom?</b> When off-the-shelf AI won't cut it, we also design and project-manage custom software and internal tools — with a senior product manager running the build end-to-end.
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The difference</span>
+      <h2>A product manager who ships — not a consultant who advises and vanishes.</h2>
+      <p>You get the person who scopes the work, writes the plan, manages the build, and owns the outcome. One throughline from idea to adopted.</p>
+    </div>
+    <div class="steps-line"></div>
+    <div class="steps">
+      <div class="step"><h3>Discover</h3><p>Understand your business, your people, and where the friction really is.</p></div>
+      <div class="step"><h3>Plan</h3><p>A clear, prioritized roadmap — what to do, what to skip, and why.</p></div>
+      <div class="step"><h3>Build</h3><p>Ship the highest-value piece first. Real workflows, not pilots-for-show.</p></div>
+      <div class="step"><h3>Adopt</h3><p>Train the team, measure results, and keep improving over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--gold)">Pricing</span>
+      <h2>Clear, fixed-fee packages. No surprise invoices.</h2>
+      <p>Start small with an Assessment. If it makes sense to keep going, we credit it toward your first build.</p>
+    </div>
+    <div class="price-grid">
+      <div class="tier">
+        <span class="tag">Start here</span>
+        <div class="amt">$2,500<small> fixed</small></div>
+        <div class="desc">AI Opportunity Assessment · ~2 weeks</div>
+        <ul>
+          <li>Operations & workflow audit</li>
+          <li>Prioritized opportunity map</li>
+          <li>90-day roadmap + ROI estimates</li>
+          <li>A clear recommendation — keep going or not</li>
+        </ul>
+        <a class="btn alt" href="#contact" style="border-color:#fff;color:#fff">Book the assessment</a>
+      </div>
+      <div class="tier feature">
+        <span class="tag">Most popular</span>
+        <div class="amt">from $5,000</div>
+        <div class="desc">Pilot &amp; Implementation · per workflow</div>
+        <ul>
+          <li>Build & launch one high-ROI workflow</li>
+          <li>Tool selection, setup & integration</li>
+          <li>Team handoff + documentation</li>
+          <li>Assessment fee credited here</li>
+        </ul>
+        <a class="btn" href="#contact" style="background:#fff;color:var(--forest)">Start a pilot</a>
+      </div>
+      <div class="tier">
+        <span class="tag">Ongoing</span>
+        <div class="amt">from $1,500<small>/mo</small></div>
+        <div class="desc">Fractional AI Partner · monthly</div>
+        <ul>
+          <li>Continuous improvement & new automations</li>
+          <li>Team upskilling as tools evolve</li>
+          <li>Priority support & advisory</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <a class="btn alt" href="#contact" style="border-color:#fff;color:#fff">Talk it through</a>
+      </div>
+    </div>
+    <p class="price-note">Custom software is scoped per project. New-client pilot rates available for the first few partners.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="who-grid who">
+      <div>
+        <span class="eyebrow">Who it's for</span>
+        <h2 style="font-size:30px;margin-top:10px">Built for small and mid-sized teams</h2>
+        <ul>
+          <li>Owners drowning in manual, repetitive work</li>
+          <li>Service businesses ready to move faster without more headcount</li>
+          <li>Teams burned by a tool that never got adopted</li>
+          <li>Leaders who want a plan, not a pile of demos</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h3>Why Cairn</h3>
+        <p>A cairn is a stack of stones that marks the trail when the path isn't obvious. That's the job: a steady guide through new terrain.</p>
+        <p>Founded by a product manager who's spent a career turning fuzzy goals into shipped software — now focused full-time on helping businesses put AI to work, honestly and practically.</p>
+        <p class="parent">A Casting Karma LLC company.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Let's find your first win.</h2>
+      <p>Book a free 30-minute call. We'll talk through where you are, where AI could help, and whether an Assessment makes sense. No pitch, no pressure.</p>
+      <a class="btn" href="mailto:hello@example.com">Book a free call →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>
+      <div class="foot-brand">Cairn</div>
+      <div class="parent">Helping businesses use AI well. · A Casting Karma LLC company.</div>
+    </div>
+    <div>© 2026 Cairn. All rights reserved. &nbsp;·&nbsp; hello@example.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
